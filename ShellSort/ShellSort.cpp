@@ -16,7 +16,13 @@ void print(int* arr, int len) {
 }
 
 void sort(int* arr, int len) {
-
+    for(int gap = len >> 1; gap > 0; gap /= 2){
+        for (int i = gap; i < len; i++) {
+            for (int j = i; j > gap - 1; j -= gap){
+                if (arr[j] < arr[j - gap]) swap(arr , j, j - gap);
+            }
+        }
+    }
 }
 
 int main() {
