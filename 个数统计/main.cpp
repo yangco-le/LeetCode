@@ -13,8 +13,9 @@ int main() {
         arr[x]++;
     }
 
-    for (int i = 1; i <= 100 && !arr[i]; i++){
-        printf("%d %d", i, arr[i]);
+    for (int i = 1; i <= 100; i++){
+        if (!arr[i]) continue;
+        printf("%d %d\n", i, arr[i]);
     }
 
     return 0;
