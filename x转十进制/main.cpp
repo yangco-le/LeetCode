@@ -4,7 +4,7 @@ using namespace std;
 int main() {
     char str[105];
     int x;
-    scanf("%s %d", &str, &x);
+    scanf("%s %d", str, &x);
 
     int ans = 0;
     int len = strlen(str);
