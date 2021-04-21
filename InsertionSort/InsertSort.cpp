@@ -19,7 +19,7 @@ void sort(int* arr, int len) {
     for (int i = 1; i < len; i++) {
         for (int j = i; j > 0; j--) {
             if (arr[j] < arr[j - 1]) swap(arr, j, j - 1);
-        }
+
     }
 }
 
