@@ -2,7 +2,6 @@
 using namespace std;
 
 string str;
-vector<int>v;
 
 string divide(string str) {
     int carry = 0;
