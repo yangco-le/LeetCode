@@ -18,9 +18,12 @@ void move(int n) {
 
         for (int j = 1; j <= 4; j++) {
             for (int i = 1; i <= 3; i++) {
-                if (a[i][j] != a[i + 1][j]) continue;
+                int t = i + 1;
+                while(a[t][j] == 0 && t <= 4) t++;
+                if (t == 5) break;
+                if (a[i][j] != a[t][j]) continue;
                 a[i][j] *= 2;
-                a[i + 1][j] = 0;
+                a[t][j] = 0;
             }
         }
 
@@ -42,9 +45,12 @@ void move(int n) {
 
         for (int j = 1; j <= 4; j++) {
             for (int i = 4; i >= 2; i--) {
-                if (a[i][j] != a[i - 1][j]) continue;
+                int t = i - 1;
+                while(a[t][j] == 0 && t >= 1) t--;
+                if (t == 0) break;
+                if (a[i][j] != a[t][j]) continue;
                 a[i][j] *= 2;
-                a[i - 1][j] = 0;
+                a[t][j] = 0;
             }
         }
 
@@ -66,9 +72,12 @@ void move(int n) {
 
         for (int i = 1; i <= 4; i++) {
             for (int j = 1; j <= 3; j++) {
-                if (a[i][j] != a[i][j + 1]) continue;
+                int t = j + 1;
+                while(a[i][t] == 0 && t <= 4) t++;
+                if (t == 5) break;
+                if (a[i][j] != a[i][t]) continue;
                 a[i][j] *= 2;
-                a[i][j + 1] = 0;
+                a[i][t] = 0;
             }
         }
 
@@ -90,9 +99,12 @@ void move(int n) {
 
         for (int i = 1; i <= 4; i++) {
             for (int j = 4; j >= 2; j--) {
-                if (a[i][j] != a[i][j - 1]) continue;
+                int t = j - 1;
+                while(a[i][t] == 0 && t >= 1) t--;
+                if (t == 0) break;
+                if (a[i][j] != a[i][t]) continue;
                 a[i][j] *= 2;
-                a[i][j - 1] = 0;
+                a[i][t] = 0;
             }
         }
 
@@ -121,7 +133,6 @@ int main() {
             for(int j = 1; j <= 4; j++)
                 cin >> a[i][j];
 
-        move(n);
         move(n);
 
         for (int i = 1; i <= 4; i++) {
