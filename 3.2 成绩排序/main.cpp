@@ -2,31 +2,41 @@
 using namespace std;
 
 struct Stu{
-    int id;
+    string name;
     int score;
 };
 
-Stu s[105];
+Stu s[1005];
 
-bool cmp(Stu s1, Stu s2) {
-    if(s1.score == s2.score) return s1.id < s2.id;
-    else return s1.score < s2.score;
+bool cmpasc(Stu s1, Stu s2) {
+    return s1.score < s2.score;
+}
+
+bool cmpdesc(Stu s1, Stu s2) {
+    return s1.score > s2.score;
 }
 
 int main() {
 
     int n;
+    int dir;
 
-    cin >> n;
+    while (cin >> n) {
 
-    for (int i = 0; i < n; i++) {
-        cin >> s[i].id >> s[i].score;
-    }
+        cin >> dir;
 
-    sort(s, s+n, cmp);
+        for (int i = 0; i < n; i++) {
+            cin >> s[i].name >> s[i].score;
+        }
 
-    for (int i = 0; i < n; i++) {
-        cout << s[i].id << " " << s[i].score << endl;
+        if(dir == 1)
+            stable_sort(s, s+n, cmpasc);
+        else
+            stable_sort(s, s+n, cmpdesc);
+
+        for (int i = 0; i < n; i++) {
+            cout << s[i].name << " " << s[i].score << endl;
+        }
     }
 
 
