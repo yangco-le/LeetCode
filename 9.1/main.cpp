@@ -36,7 +36,7 @@ int BFS(int n, int k) {
 			else if (i == 2) {
 				next.n *= 2;
 			}
-			if (next.n < 0 || next.n >= 100000 || visited[next.n]) {
+			if (next.n < 0 || next.n > 100000 || visited[next.n]) {
 				continue;
 			}
 			visited[next.n] = true;
@@ -48,9 +48,10 @@ int BFS(int n, int k) {
 
 int main() {
 	int n, k;
-	cin >> n >> k;
-	int res = BFS(n, k);
-	cout << res << endl;
+	while (cin >> n >> k) {
+		int res = BFS(n, k);
+		cout << res << endl;
+	}
 	return 0;
 }
 
