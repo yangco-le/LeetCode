@@ -15,7 +15,6 @@ using namespace std;
 
 int n;
 int a[30];
-bool visit[30];
 int num;
 
 void DFS(int sum, int index, int& num) {
@@ -23,7 +22,7 @@ void DFS(int sum, int index, int& num) {
 		num++;
 	}
 	for (int i = index; i < n; i++) {
-		if (sum + a[i] > 40 || visit[i]) continue;
+		if (sum + a[i] > 40) continue;
 		DFS(sum + a[i], i + 1, num);
 	}
 }
