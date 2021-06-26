@@ -83,7 +83,7 @@ int main() {
 			cout << "YES";
 		}
 		else {
-			cout << "No";
+			cout << "NO";
 		}
 		cout << endl;
 	}
