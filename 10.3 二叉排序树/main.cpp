@@ -16,31 +16,31 @@ struct TreeNode {
 	}
 };
 
-TreeNode* Insert(TreeNode* root, int x, int father) {
-	if (root == NULL) {
+void Insert(TreeNode** root, int x, int father) {
+	if (*root == NULL) {
 		cout << father << endl;
-		root = new TreeNode(x);
-		return root;
+		*root = new TreeNode(x);
+		return;
 	}
-	else if (x < root->data) {
-		root->lc = Insert(root->lc, x, root->data);
+	else if (x < (*root)->data) {
+		Insert(&((*root)->lc), x, (*root)->data);
 	}
 	else {
-		root->rc = Insert(root->rc, x, root->data);
+		Insert(&((*root)->rc), x, (*root)->data);
 	}
-	return root;
+	return;
 }
 
 int main() {
 
 	int n;
 	cin >> n;
-	
+
 	int tmp;
 	TreeNode* root = NULL;
 	for (int i = 0; i < n; i++) {
 		cin >> tmp;
-		root = Insert(root, tmp, -1);
+		Insert(&root, tmp, -1);
 	}
 	cout << endl;
 
