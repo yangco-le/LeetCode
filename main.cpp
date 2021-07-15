@@ -21,6 +21,6 @@ public:
                 miss = max(miss - rec[i] + 1, 0);
             }
         }
-        return n - miss;
+        return n - miss; 
     }
 };
